@@ -1,6 +1,15 @@
 from optparse import TitledHelpFormatter
 from bs4 import BeautifulSoup
 import re
+from datetime import date
+
+"""
+Thoughts:
+
+To accomadate for BetOnline, Search through div classes and compare the date to current date.
+If match, then search for moneyline class and within those, scrape the odds since all of the odds
+regardless of if for spread, moneyline or total all have the same class.
+"""
 
 """
 name: oddsAndTeamsExtractor
