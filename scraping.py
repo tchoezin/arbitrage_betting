@@ -18,7 +18,7 @@ returns: list -> oddsList, list -> teamsList
 
 Creates a list for all of the odds for each team that is playing a game.
 """
-def oddsAndTeamsExtractor(soup, oddsClass, teamsClass):
+def oddsAndTeamsExtractor(soup, oddsClass, teamsClass=None):
     #create regular expression matching pattern for desired info
     oddsRegex = re.compile(oddsClass)
     teamRegex = re.compile(teamsClass)
