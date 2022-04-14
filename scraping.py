@@ -76,3 +76,22 @@ def gamesDictCreator(oddsList, teamsList):
     # betting website and would be easier to search for odds for the same game between different websites
 # maybe could use pandas dataframe, but currently don't see a necessity for it unless we think modeling
     # and visualizations would be helpful
+
+def oddsAndTeamsExtractorBS(soup, oddsClass, teamsClass):
+    #create regular expression matching pattern for desired info
+    oddsRegex = re.compile(oddsClass)
+    teamRegex = re.compile(teamsClass)
+
+    divOddsList = soup.find_all("div data-v-a006f05c data-v-662d76bf", oddsRegex)
+
+    oddsList = []
+    for div in divOddsList:
+        oddsList.append(int(div.text))
+
+    divTeamsList = soup.find_all("div data-v-a006f05c data-v-662d76bf", teamRegex)
+
+    teamsList = []
+    for div in divTeamsList:
+        teamsList.append(div.text)
+    return oddsList,teamsList
+
