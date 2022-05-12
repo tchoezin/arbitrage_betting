@@ -25,7 +25,7 @@ def daSorter(needlist):
 
 bdank = daSorter(dank1)
 rdank = daSorter(dank2)
-print(bdank)
+#print(bdank)
 #print(rdank)
 
 
@@ -53,6 +53,16 @@ def marginbeast(damax):
         final.append(b[0])
         k = (((1/v[1])+(1/b[1]))*100)/100
         final.append(k)
+        if k < 1:
+            vper = 1/(1+v[1]/b[1])*100
+            bper = 100-vper
+            vpay = vper*v[1]
+            bpay = bper*b[1]
+            final.append(vper)
+            final.append(bper)
+            final.append(vpay)
+            final.append(bpay)
+
     return final
 
 print(marginbeast(k))
